@@ -69,8 +69,8 @@ public class EmployeeServiceImpl implements EmployeeService {
                 .orElseThrow(()-> new EmployeeNotFoundException(employeeId));
 
         existingEmployee.setFirstName(employeeDTO.getFirstName());
-        existingEmployee.setLastName(existingEmployee.getLastName());
-        existingEmployee.setEmailId(existingEmployee.getEmailId());
+        existingEmployee.setLastName(employeeDTO.getLastName());
+        existingEmployee.setEmailId(employeeDTO.getEmailId());
 
         Employee updatedEmployee = employeeRepository.save(existingEmployee);
         EmployeeDTO savedEmployeeDTO = modelMapper.map(updatedEmployee, EmployeeDTO.class);
